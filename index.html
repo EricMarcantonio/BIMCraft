@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BIMCraft</title>
+    
+<script type="module">
+import init, * as bindings from '/BIMCraft/bimcraft-web-8c7e261efca523a3.js';
+const wasm = await init({ module_or_path: '/BIMCraft/bimcraft-web-4d55d03ac0d0f9b3_bg.wasm' });
+
+
+window.wasmBindings = bindings;
+
+
+dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
+
+</script>
+    <link rel="icon" href="/BIMCraft/bimcraft-256-71a8dd01a115eba4.png" integrity="sha384-Ah9nEfQhioA+yQ/hN5b3xnrpDoKQDNzI9zZ0H4iJlG05vm9RfJ6eZL1CAs0GMLrW"/>
+    <style>
+      html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; background: #f4f4f2; }
+      @media (prefers-color-scheme: dark) { html, body { background: #1e1f22; } }
+      canvas#bimcraft { display: block; width: 100%; height: 100%; outline: none; }
+      #loading { position: fixed; inset: 0; display: grid; place-items: center; font: 15px system-ui, sans-serif; color: #777; pointer-events: none; }
+    </style>
+  <link rel="modulepreload" href="/BIMCraft/bimcraft-web-8c7e261efca523a3.js" crossorigin="anonymous" integrity="sha384-fWqu9UtJvj/CrqUM1z6SrncddBi7MvqV8ZmZujhW+swYfFAOVFU2R2AYedKiVzKL"><link rel="preload" href="/BIMCraft/bimcraft-web-4d55d03ac0d0f9b3_bg.wasm" crossorigin="anonymous" integrity="sha384-KG4AnkRkEeizIuXnvjD2OHo8HWS2YjuSkFI3gMW+TzyBOoSQIqi09l/cclrZqM3Z" as="fetch" type="application/wasm"></head>
+  <body>
+    <!-- The window draws on this canvas; the note under it says the page is loading, or why it couldn't start. -->
+    <p id="loading">Loading BIMCraft…</p>
+    <canvas id="bimcraft"></canvas>
+  </body>
+</html>
